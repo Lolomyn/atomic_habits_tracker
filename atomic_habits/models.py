@@ -38,6 +38,8 @@ class Habit(models.Model):
     related_habit = models.ForeignKey(
         "self",
         on_delete=models.CASCADE,
+        blank=True,
+        null=True,
         related_name="related_habits",
         verbose_name="Связанная привычка",
         help_text="Укажите привычку, связанную с полезной привычкой",
@@ -65,7 +67,7 @@ class Habit(models.Model):
         verbose_name="Вознаграждение",
     )
 
-    duration = models.TimeField(
+    duration = models.IntegerField(
         verbose_name="Время выполнения привычки",
         help_text="Укажите время выполнения привычки",
     )
