@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "atomic-habits"
+version = "0.1.0"
+description = ""
+authors = ["vismanmark"]
+readme = "README.md"
+
+[tool.mypy]
+disallow_untyped_defs = true
+warn_return_any = true
+check_untyped_defs = true
+exclude = 'venv|tests|config|manage.py|migrations'
+
+[tool.black]
+line-length = 119
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | \.mypy_cache
+  | \.pytest_cache
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.isort]
+line_length = 119
+multi_line_output = 3
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.2.4"
+djangorestframework = "^3.16.0"
+pillow = "^11.3.0"
+psycopg2-binary = "^2.9.10"
+python-dotenv = "^1.1.1"
+django-filter = "^25.1"
+drf-yasg = "^1.21.10"
+djangorestframework-simplejwt = "^5.5.1"
+requests = "^2.32.4"
+celery = "^5.5.3"
+eventlet = "^0.40.2"
+redis = "^6.2.0"
+django-celery-beat = "^2.8.1"
+django-cors-headers = "^4.7.0"
+
+
+[tool.poetry.group.linter.dependencies]
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.3.0"
+mypy = "^1.17.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
