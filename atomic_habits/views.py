@@ -1,7 +1,8 @@
-from rest_framework import serializers, viewsets
+from rest_framework import viewsets
 
 from .models import Habit
 from .serializers import HabitSerializer
+from .paginators import PageNumberPagination
 
 
 class HabitViewSet(viewsets.ModelViewSet):
@@ -9,3 +10,4 @@ class HabitViewSet(viewsets.ModelViewSet):
 
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
+    pagination_class = PageNumberPagination
