@@ -56,3 +56,9 @@ class HabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
         fields = "__all__"
+
+
+class PublicHabitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Habit
+        exclude = ["id", "is_public"]
