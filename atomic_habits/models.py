@@ -33,7 +33,7 @@ class Habit(models.Model):
         help_text="Укажите подробнее о действии, которое представляет из себя привычка",
     )
 
-    is_pleasant_habit = models.BooleanField()
+    is_pleasant_habit = models.BooleanField(verbose_name="Приятная привычка")
 
     related_habit = models.ForeignKey(
         "self",
@@ -72,7 +72,7 @@ class Habit(models.Model):
         help_text="Укажите время выполнения привычки",
     )
 
-    is_public = models.BooleanField()
+    is_public = models.BooleanField(verbose_name="Опубликовать")
 
     def __str__(self):
         """Строковое представление модели."""
