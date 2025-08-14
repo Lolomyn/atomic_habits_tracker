@@ -12,7 +12,7 @@ class HabitViewSet(viewsets.ModelViewSet):
 
     serializer_class = HabitSerializer
     pagination_class = HabitPaginator
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_permissions(self):
         """Задает права, при которых только владелец привычки может ее редактировать."""
@@ -28,5 +28,6 @@ class HabitViewSet(viewsets.ModelViewSet):
 
 class PublicHabitViewSet(viewsets.ModelViewSet):
     """ViewSet для публичной привычки."""
+
     serializer_class = PublicHabitSerializer
     queryset = Habit.objects.filter(is_public=True)

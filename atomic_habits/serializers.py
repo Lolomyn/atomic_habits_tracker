@@ -59,6 +59,8 @@ class HabitSerializer(serializers.ModelSerializer):
 
 
 class PublicHabitSerializer(serializers.ModelSerializer):
+    """Сериализатор публичной привычки"""
+
     class Meta:
         model = Habit
         exclude = ["id", "is_public"]

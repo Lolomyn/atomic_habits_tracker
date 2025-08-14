@@ -3,6 +3,8 @@ from django.db import models
 
 
 class Habit(models.Model):
+    """Модель привычки"""
+
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,

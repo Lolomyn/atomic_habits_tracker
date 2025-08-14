@@ -68,19 +68,18 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Разрешает все домены (только для разработки!)
+# CORS_ALLOW_ALL_ORIGINS = True  # Разрешает все домены (только для разработки!)
 
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:8000',
-#     'http://127.0.0.1:8000',
-# ]
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://read-and-write.example.com",  # Замените на адрес вашего фронтенд-сервера
-    # и добавьте адрес бэкенд-сервера
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
 ]
 
-# CORS_ALLOW_ALL_ORIGINS = False
+CSRF_TRUSTED_ORIGINS = [
+    "https://test",
+]
+
+CORS_ALLOW_ALL_ORIGINS = False
 
 ROOT_URLCONF = "config.urls"
 
