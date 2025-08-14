@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 
 class Habit(models.Model):
@@ -23,6 +24,8 @@ class Habit(models.Model):
         verbose_name="Время выполнения привычки",
         help_text="Укажите время выполнения привычки",
     )
+
+    last_completed = models.DateField(null=True, blank=True, verbose_name="Время последнего выполнения привычки")
 
     action = models.CharField(
         max_length=120, verbose_name="Действие", help_text="Укажите действие, которое представляет из себя привычка"
@@ -79,6 +82,13 @@ class Habit(models.Model):
     def __str__(self):
         """Строковое представление модели."""
         return f"{self.action} / Периодичность (дней): {self.periodicity}"
+
+    def is_due_today(self):
+        if not self.last_completed:
+            return True
+
+        days_passed = (timezone.now().date() - self.last_completed).days
+        return days_passed >= self.periodicity
 
     class Meta:
         verbose_name = "Привычка"

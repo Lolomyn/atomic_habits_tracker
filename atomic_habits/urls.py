@@ -1,4 +1,5 @@
 from django.urls import path
+
 from atomic_habits.apps import AtomicHabitsConfig
 
 from .views import HabitViewSet, PublicHabitViewSet

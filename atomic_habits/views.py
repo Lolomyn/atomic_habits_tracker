@@ -2,9 +2,9 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Habit
-from .serializers import HabitSerializer, PublicHabitSerializer
 from .paginators import HabitPaginator
 from .permissions import IsOwner
+from .serializers import HabitSerializer, PublicHabitSerializer
 
 
 class HabitViewSet(viewsets.ModelViewSet):
