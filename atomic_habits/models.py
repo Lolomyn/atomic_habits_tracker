@@ -57,6 +57,7 @@ class Habit(models.Model):
         (4, "4 дня"),
         (5, "5 дней"),
         (6, "6 дней"),
+        (7, "7 дней"),
     ]
 
     periodicity = models.PositiveSmallIntegerField(

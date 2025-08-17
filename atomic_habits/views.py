@@ -25,9 +25,13 @@ class HabitViewSet(viewsets.ModelViewSet):
         """Возвращает только привычки текущего пользователя."""
         return Habit.objects.filter(user=self.request.user)
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 
 class PublicHabitViewSet(viewsets.ModelViewSet):
     """ViewSet для публичной привычки."""
 
     serializer_class = PublicHabitSerializer
     queryset = Habit.objects.filter(is_public=True)
+    permission_classes = [IsAuthenticated]
