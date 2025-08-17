@@ -55,7 +55,7 @@ class HabitSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Habit
-        exclude = ['user']
+        exclude = ["user"]
 
 
 class PublicHabitSerializer(serializers.ModelSerializer):

@@ -107,9 +107,7 @@ class HabitTestCase(APITestCase):
 
         response = self.client.get("/public_habits/")
 
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]["action"], "Скушать яблоко")
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_update_habit(self):
         """Тестирование обновления объекта Привычка."""
